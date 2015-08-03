@@ -46,10 +46,20 @@
 			 $.getJSON(url, function(data) {
 
 			  var entry = data.feed.entry;
+                 
+                 var tr;
+                 
+                 for (var i = 0; i < entry.length; i ++) {
+                    tr = $('<tr/>');
+                     tr.append("<td>" + entry.gsx$jogador.$t + "</td>");
+                     tr.append("<td>" + entry.gsx$gols.$t + "</td>");
+                     $.('.artilharia').append(tr);
 
-			  $(entry).each(function(){
-				// Column names are name, age, etc.
-				$('.artilharia').prepend('<tr><td>'+this.gsx$jogador.$t+'</td><td>'+this.gsx$gols.$t+'</td>');
+                 }
+
+//			  $(entry).each(function(){
+//				// Column names are name, age, etc.
+//				$('.artilharia').prepend('<tr><td>'+this.gsx$jogador.$t+'</td><td>'+this.gsx$gols.$t+'</td></tr>');
 			  });
 
 			 });
