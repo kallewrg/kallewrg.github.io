@@ -9,12 +9,9 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-
-<!--
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
--->
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -27,14 +24,14 @@
         <table>
             <tr>
                 <th>Jogador</th>
-                <th>Mensalista</th>
                 <th>Gols</th>
+                <th>Mensalista</th>
             </tr>
         </table>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         
-<script src="tabletop.js"></script>
+<script src="js/tabletop.js"></script>
 
 <script type="text/javascript">
   window.onload = function() { init() };
@@ -53,54 +50,24 @@
       
       var artilharia = data;
       var tr;
-      for (var i = 0; i < data.length; i++) {
+      for (var i = 0; i < artilharia.length; i++) {
           
-          tr = $('<tr/>');
-            tr.append("<td>" + data[i].Jogador + "</td>");
-            tr.append("<td>" + data[i].Mensalista + "</td>");
-            tr.append("<td>" + data[i].Gols + "</td>");
-            $('table').append(tr);
+          if(artilharia[i].Gols > 0) {
+              tr = $('<tr/>');
+                tr.append("<td>" + artilharia[i].Jogador + "</td>");
+                tr.append("<td>" + artilharia[i].Gols + "</td>");
+                tr.append("<td>" + artilharia[i].Mensalista + "</td>");
+                $('table').append(tr);
+          }
           
       };
       
       //alert(data.length)
   }
 </script>
-		
-        <!--
-        <script src="https://cdn.blockspring.com/blockspring.js"></script>
-		<script>
-          // our personal assistant function:
-          blockspring.runParsed("inimigos-da-bola", {
-            gol: 1
-          }, function(res) { 
-            //console.log(res.params);
 
-
-          var lista = res.params;
-
-            $.getJSON(lista,
-            function (json) {
-                var tr;
-                for (var i = 0; i < json.length; i++) {
-                    tr = $('<tr/>');
-                    tr.append("<td>" + json[i].jogador + "</td>");
-                    tr.append("<td>" + json[i].gol + "</td>");
-                    tr.append("<td>" + json[i].mensalista + "</td>");
-                    $('table').append(tr);
-                    }
-                });
-
-
-        })
-
-        </script>-->
-
-
-<!--
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
--->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
         <script>
