@@ -27,15 +27,21 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!--        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>-->
 
-			<div class="results"></div> 
+        <table class="artilharia">
+            <tr>
+                <th>Jogador</th>
+                <th>Gols</th>
+                <th>Mensalista</th>
+            </tr>
+        </table>
 
 			<script>
 
 			 // ID of the Google Spreadsheet
-			 var spreadsheetID = "1gTTUTtp7_n4jHwF9uDEmSxLbUzxBv8C7f7d7fCAgBQ8";
+			 var spreadsheetID = "1pGb8cvCJOAKkRxqVvSCdJ9Dm9QqyzqHsJUKHIZtyYD0";
 
 			 // Make sure it is public or set to Anyone with link can view 
-			 var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+			 var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json-in-script";
 
 			 $.getJSON(url, function(data) {
 
@@ -43,7 +49,7 @@
 
 			  $(entry).each(function(){
 				// Column names are name, age, etc.
-				$('.results').prepend('<h2>'+this.title.$t+'</h2><p>'+this.content.$t[1]+'</p>');
+				$('.artilharia').prepend('<tr><td>'+this.gsx$jogador.$t+'</td><td>'+this.gsx$gols.$t+'</td>');
 			  });
 
 			 });
@@ -79,13 +85,6 @@
 
         </script>-->
 
-        <table>
-    <tr>
-        <th>Jogador</th>
-        <th>Gols</th>
-        <th>Mensalista</th>
-    </tr>
-</table>
 
 <!--
         <script src="js/plugins.js"></script>
